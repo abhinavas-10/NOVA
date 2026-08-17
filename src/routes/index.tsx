@@ -122,41 +122,49 @@ function Hero() {
 // =====================================================
 // NEW DROPS
 // =====================================================
-
 function NewDrops() {
-
   const [drops, setDrops] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [bomber, setBomber] = useState<Product | null>(null);
+  const [hoodie, setHoodie] = useState<Product | null>(null);
 
   useEffect(() => {
-
+    // Load the normal New Drops products.
     productService
       .newDrops(6)
       .then((data) => {
-
-        setDrops(
-          Array.isArray(data)
-            ? data
-            : []
-        );
-
+        setDrops(Array.isArray(data) ? data : []);
       })
       .catch((error) => {
-
-        console.error(
-          "Failed to load new drops:",
-          error
-        );
-
+        console.error("Failed to load new drops:", error);
         setDrops([]);
-
       })
       .finally(() => {
         setLoading(false);
       });
 
-  }, []);
+    // Load the Bomber Jacket from Django.
+    productService
+      .get("38")
+      .then((product) => {
+        setBomber(product);
+      })
+      .catch((error) => {
+        console.error("Failed to load bomber jacket:", error);
+        setBomber(null);
+      });
 
+    // Load the Hoodie from Django.
+    productService
+      .get("37")
+      .then((product) => {
+        setHoodie(product);
+      })
+      .catch((error) => {
+        console.error("Failed to load hoodie:", error);
+        setHoodie(null);
+      });
+  }, []);
 
   if (loading) {
     return (
@@ -180,9 +188,7 @@ function NewDrops() {
     );
   }
 
-
   const [featured, ...rest] = drops;
-
 
   if (!featured) {
     return (
@@ -201,10 +207,8 @@ function NewDrops() {
     );
   }
 
-
   return (
     <section className={`${SECTION} py-24 sm:py-32`}>
-
       <SectionHeading
         title="New Drops"
         index="01 / 06"
@@ -213,7 +217,7 @@ function NewDrops() {
       />
 
       <div className="mt-12 grid gap-x-6 gap-y-14 lg:grid-cols-12">
-
+        {/* FEATURED PRODUCT */}
         <Reveal className="lg:col-span-7">
           <ProductCard
             product={featured}
@@ -221,62 +225,65 @@ function NewDrops() {
           />
         </Reveal>
 
-
-        <div className="grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:col-span-5">
-
-          {rest.slice(0, 2).map((p, i) => (
-
+        {/* RIGHT SIDE */}
+        <div className="grid grid-cols-2 gap-6 lg:col-span-5">
+          {/* FIRST NORMAL NEW DROP */}
+          {rest.slice(0, 1).map((product, index) => (
             <Reveal
-              key={p.id}
-              delay={80 * (i + 1)}
+              key={product.id}
+              delay={80 * (index + 1)}
+              className="self-start"
             >
-              <ProductCard product={p} />
+              <ProductCard product={product} />
             </Reveal>
-
           ))}
 
-
-          <div className="hidden flex-col justify-center border border-border p-8 sm:flex">
-
-            <p className="editorial text-3xl leading-tight">
-              Limited runs.
-              <br />
-              No restocks.
-            </p>
-
-            <Link
-              to="/shop"
-              search={{ sort: "new" }}
-              className="label-xs mt-6 inline-flex items-center gap-2 text-primary"
+          {/* SECOND NORMAL NEW DROP */}
+          {rest.slice(1, 2).map((product, index) => (
+            <Reveal
+              key={product.id}
+              delay={80 * (index + 2)}
+              className="self-start"
             >
-              See the drop
-              <ArrowRight width={14} height={14} />
-            </Link>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
 
-          </div>
+          {/* BOMBER JACKET - DJANGO PRODUCT ID 38 */}
+          {bomber && (
+            <Reveal
+              delay={160}
+              className="self-start"
+            >
+              <ProductCard product={bomber} />
+            </Reveal>
+          )}
 
-          <div className="hidden sm:block" />
-
+          {/* HOODIE - DJANGO PRODUCT ID 37 */}
+          {hoodie && (
+            <Reveal
+              delay={220}
+              className="self-start"
+            >
+              <ProductCard product={hoodie} />
+            </Reveal>
+          )}
         </div>
 
-
-        {rest.slice(2).map((p, i) => (
-
+        {/* REMAINING NORMAL PRODUCTS */}
+        {rest.slice(2).map((product, index) => (
           <Reveal
-            key={p.id}
-            delay={60 * i}
+            key={product.id}
+            delay={60 * index}
             className="col-span-6 sm:col-span-4 lg:col-span-4"
           >
-            <ProductCard product={p} />
+            <ProductCard product={product} />
           </Reveal>
-
         ))}
-
       </div>
     </section>
   );
 }
-
 
 // =====================================================
 // ERA CAMPAIGN

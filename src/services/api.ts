@@ -18,11 +18,13 @@ function mapDjangoProduct(
   product: any
 ): Product {
 
+  // ---------------------------------------------------
+  // IMAGES
+  // ---------------------------------------------------
+
   const images =
     product.images
-      ?.map(
-        (image: any) => image.image
-      )
+      ?.map((image: any) => image.image)
       .filter(Boolean) ?? [];
 
 
@@ -32,6 +34,10 @@ function mapDjangoProduct(
         image.is_primary
     );
 
+
+  // ---------------------------------------------------
+  // SIZES
+  // ---------------------------------------------------
 
   const sizes = [
     ...new Set(
@@ -45,6 +51,10 @@ function mapDjangoProduct(
   ] as string[];
 
 
+  // ---------------------------------------------------
+  // COLORS
+  // ---------------------------------------------------
+
   const colors = [
     ...new Set(
       (product.variants ?? [])
@@ -56,6 +66,10 @@ function mapDjangoProduct(
     ),
   ] as string[];
 
+
+  // ---------------------------------------------------
+  // PRICE
+  // ---------------------------------------------------
 
   const price =
     Number(product.price) || 0;
@@ -78,6 +92,27 @@ function mapDjangoProduct(
         )
       : 0;
 
+
+  // ---------------------------------------------------
+  // CATEGORY
+  // ---------------------------------------------------
+
+  const categorySlug =
+    product.category?.slug ??
+    product.category?.name ??
+    "";
+
+
+  const subcategory =
+    product.subcategory?.slug ??
+    product.subcategory?.name ??
+    product.subcategory ??
+    "";
+
+
+  // ---------------------------------------------------
+  // RETURN PRODUCT
+  // ---------------------------------------------------
 
   return {
     id: String(product.id),
@@ -103,11 +138,10 @@ function mapDjangoProduct(
       "NØVA",
 
     category:
-      product.category?.slug ??
-      "",
+      String(categorySlug),
 
     subcategory:
-      "",
+      String(subcategory),
 
     status:
       product.is_active
@@ -231,6 +265,98 @@ function categoryMatches(
     );
 
 
+  // ---------------------------------------------------
+  // GENDER
+  // ---------------------------------------------------
+
+  const gender =
+    normalizeCategory(
+      product.gender
+    );
+
+
+  // Men
+  if (
+    CATEGORY_ALIASES.men.includes(
+      requested
+    )
+  ) {
+
+    return (
+      CATEGORY_ALIASES.men.includes(
+        gender
+      ) ||
+      CATEGORY_ALIASES.men.includes(
+        normalizeCategory(
+          product.category?.slug
+        )
+      ) ||
+      CATEGORY_ALIASES.men.includes(
+        normalizeCategory(
+          product.category?.name
+        )
+      )
+    );
+
+  }
+
+
+  // Women
+  if (
+    CATEGORY_ALIASES.women.includes(
+      requested
+    )
+  ) {
+
+    return (
+      CATEGORY_ALIASES.women.includes(
+        gender
+      ) ||
+      CATEGORY_ALIASES.women.includes(
+        normalizeCategory(
+          product.category?.slug
+        )
+      ) ||
+      CATEGORY_ALIASES.women.includes(
+        normalizeCategory(
+          product.category?.name
+        )
+      )
+    );
+
+  }
+
+
+  // Unisex
+  if (
+    CATEGORY_ALIASES.unisex.includes(
+      requested
+    )
+  ) {
+
+    return (
+      CATEGORY_ALIASES.unisex.includes(
+        gender
+      ) ||
+      CATEGORY_ALIASES.unisex.includes(
+        normalizeCategory(
+          product.category?.slug
+        )
+      ) ||
+      CATEGORY_ALIASES.unisex.includes(
+        normalizeCategory(
+          product.category?.name
+        )
+      )
+    );
+
+  }
+
+
+  // ---------------------------------------------------
+  // NORMAL CATEGORY
+  // ---------------------------------------------------
+
   const djangoSlug =
     normalizeCategory(
       product.category?.slug
@@ -244,6 +370,7 @@ function categoryMatches(
 
 
   // Exact match
+
   if (
     djangoSlug === requested ||
     djangoName === requested
@@ -254,9 +381,11 @@ function categoryMatches(
   }
 
 
+  // Aliases
+
   const aliases =
     CATEGORY_ALIASES[
-      requested
+      requestedSlug.toLowerCase()
     ] ?? [
       requested,
     ];
@@ -290,7 +419,9 @@ function filterProducts(
     );
 
 
+  // ===================================================
   // CATEGORY
+  // ===================================================
 
   if (
     filters.categories?.length
@@ -299,15 +430,21 @@ function filterProducts(
     result =
       result.filter(
         (product) =>
-          filters.categories!.includes(
-            product.category
+          filters.categories!.some(
+            (category) =>
+              categoryMatches(
+                product,
+                category
+              )
           )
       );
 
   }
 
 
+  // ===================================================
   // SIZE
+  // ===================================================
 
   if (
     filters.sizes?.length
@@ -317,10 +454,8 @@ function filterProducts(
       result.filter(
         (product) => {
 
-          // Don't hide products
-          // that don't have variants.
-
           if (
+            !product.sizes ||
             product.sizes.length === 0
           ) {
 
@@ -342,7 +477,9 @@ function filterProducts(
   }
 
 
+  // ===================================================
   // COLOR
+  // ===================================================
 
   if (
     filters.colors?.length
@@ -353,6 +490,7 @@ function filterProducts(
         (product) => {
 
           if (
+            !product.colors ||
             product.colors.length === 0
           ) {
 
@@ -374,7 +512,9 @@ function filterProducts(
   }
 
 
+  // ===================================================
   // MIN PRICE
+  // ===================================================
 
   if (
     filters.minPrice != null
@@ -390,7 +530,9 @@ function filterProducts(
   }
 
 
+  // ===================================================
   // MAX PRICE
+  // ===================================================
 
   if (
     filters.maxPrice != null
@@ -406,7 +548,9 @@ function filterProducts(
   }
 
 
+  // ===================================================
   // RATING
+  // ===================================================
 
   if (
     filters.minRating
@@ -422,7 +566,9 @@ function filterProducts(
   }
 
 
+  // ===================================================
   // DISCOUNT
+  // ===================================================
 
   if (
     filters.minDiscount
@@ -438,7 +584,9 @@ function filterProducts(
   }
 
 
+  // ===================================================
   // SEARCH
+  // ===================================================
 
   if (
     filters.query
@@ -468,7 +616,9 @@ function filterProducts(
   }
 
 
+  // ===================================================
   // SORT
+  // ===================================================
 
   switch (
     filters.sort
@@ -711,20 +861,14 @@ export const productService = {
   // NEW DROPS
   // ---------------------------------------------------
 
-  newDrops: async (
-    n = 6
-  ): Promise<Product[]> => {
+ newDrops: async (n = 6): Promise<Product[]> => {
+  const products = await productService.list();
 
-    const products =
-      await productService.list();
-
-
-    return products.slice(
-      0,
-      n
-    );
-
-  },
+  return products.slice(
+    0,
+    n
+  );
+},
 
 
   // ---------------------------------------------------
@@ -750,117 +894,80 @@ export const productService = {
   // ---------------------------------------------------
   // CATEGORY
   // ---------------------------------------------------
-byCategory: async (
-  slug: string,
-  n?: number
-): Promise<Product[]> => {
 
-  const response = await fetch(
-    `${API_BASE}/products/`
-  );
+  byCategory: async (
+    slug: string,
+    n?: number
+  ): Promise<Product[]> => {
 
-  if (!response.ok) {
-    throw new Error(
-      "Failed to fetch products"
-    );
-  }
+    const response =
+      await fetch(
+        `${API_BASE}/products/`
+      );
 
-  const data = await response.json();
 
-  if (!Array.isArray(data)) {
-    return [];
-  }
+    if (!response.ok) {
 
-  const requested =
-    String(slug)
-      .toLowerCase()
-      .trim();
+      throw new Error(
+        "Failed to fetch products"
+      );
 
-  let filtered: any[] = [];
+    }
 
-  // ==============================
-  // MEN
-  // ==============================
 
-  if (requested === "men") {
+    const data =
+      await response.json();
 
-    filtered = data.filter(
-      (product: any) =>
-        product.is_active === true &&
-        String(product.gender)
-          .toLowerCase()
-          .trim() === "men"
-    );
 
-  }
+    if (
+      !Array.isArray(data)
+    ) {
 
-  // ==============================
-  // WOMEN
-  // ==============================
+      return [];
 
-  else if (requested === "women") {
+    }
 
-    filtered = data.filter(
-      (product: any) =>
-        product.is_active === true &&
-        String(product.gender)
-          .toLowerCase()
-          .trim() === "women"
-    );
 
-  }
+    const requested =
+      String(slug)
+        .toLowerCase()
+        .trim();
 
-  // ==============================
-  // UNISEX
-  // ==============================
 
-  else if (requested === "unisex") {
+    const filtered =
+      data.filter(
+        (product: any) =>
+          product.is_active === true &&
+          categoryMatches(
+            product,
+            requested
+          )
+      );
 
-    filtered = data.filter(
-      (product: any) =>
-        product.is_active === true &&
-        String(product.gender)
-          .toLowerCase()
-          .trim() === "unisex"
+
+    const products =
+      filtered.map(
+        mapDjangoProduct
+      );
+
+
+    console.log(
+      "CATEGORY:",
+      requested,
+      "PRODUCTS:",
+      products.length
     );
 
-  }
 
-  // ==============================
-  // OTHER CATEGORIES
-  // ==============================
-
-  else {
-
-    filtered = data.filter(
-      (product: any) =>
-        product.is_active === true &&
-        String(
-          product.category?.slug
+    return n
+      ? products.slice(
+          0,
+          n
         )
-          .toLowerCase()
-          .trim() === requested
-    );
+      : products;
 
-  }
+  },
 
-  const products =
-    filtered.map(
-      mapDjangoProduct
-    );
-
-  console.log(
-    "CATEGORY:",
-    requested,
-    "PRODUCTS:",
-    products.length
-  );
-
-  return n
-    ? products.slice(0, n)
-    : products;
-},
- 
 
   // ---------------------------------------------------
   // RELATED

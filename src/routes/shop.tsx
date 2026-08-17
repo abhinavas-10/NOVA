@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { LayoutGrid, List, SlidersHorizontal, X } from "lucide-react";
 import { SiteLayout } from "@/components/nova/SiteLayout";
@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/nova/ProductCard";
 import { EmptyState } from "@/components/nova/primitives";
 import { COLORS, SIZES, categories } from "@/data/catalog";
 import { productService } from "@/services/api";
-import type { CategorySlug, ProductFilters } from "@/types";
+import type { CategorySlug, Product, ProductFilters } from "@/types";
 import { inr } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
@@ -191,9 +191,9 @@ function FilterPanel({
     </div>
   );
 }
-
 function ShopPage() {
   const search = Route.useSearch();
+
   const [filters, setFilters] = useState<ProductFilters>({
     categories: search.category ? [search.category] : [],
     sizes: [],
@@ -202,19 +202,48 @@ function ShopPage() {
     minRating: 0,
     minDiscount: 0,
   });
+
   const [query, setQuery] = useState(search.q ?? "");
   const [sort, setSort] = useState<Sort>(search.sort ?? "featured");
   const [view, setView] = useState<"grid" | "list">("grid");
   const [drawer, setDrawer] = useState(false);
 
-  const results = useMemo(
-    () => productService.listSync({ ...filters, query, sort }),
-    [filters, query, sort],
-  );
+  const [results, setResults] = useState<Product[]>([]);
+  const [productsLoading, setProductsLoading] = useState(true);
 
-  const set = (f: Partial<ProductFilters>) => setFilters((s) => ({ ...s, ...f }));
+  useEffect(() => {
+    setProductsLoading(true);
+
+    productService
+      .list({
+        ...filters,
+        query,
+        sort,
+      })
+      .then((products) => {
+        setResults(Array.isArray(products) ? products : []);
+      })
+      .catch((error) => {
+        console.error("Failed to load shop products:", error);
+        setResults([]);
+      })
+      .finally(() => {
+        setProductsLoading(false);
+      });
+  }, [filters, query, sort]);
+
+  const set = (f: Partial<ProductFilters>) =>
+    setFilters((s) => ({ ...s, ...f }));
+
   const reset = () =>
-    setFilters({ categories: [], sizes: [], colors: [], maxPrice: 16000, minRating: 0, minDiscount: 0 });
+    setFilters({
+      categories: [],
+      sizes: [],
+      colors: [],
+      maxPrice: 16000,
+      minRating: 0,
+      minDiscount: 0,
+    });
 
   return (
     <SiteLayout>
@@ -282,8 +311,19 @@ function ShopPage() {
           </aside>
 
           <div>
-            <p className="label-xs mb-6 text-muted-foreground">{results.length} products</p>
-            {results.length === 0 ? (
+          <p className="label-xs mb-6 text-muted-foreground">
+  {productsLoading ? "Loading products..." : `${results.length} products`}
+</p>
+           {productsLoading ? (
+  <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
+    {[1, 2, 3, 4].map((item) => (
+      <div
+        key={item}
+        className="aspect-[4/5] animate-pulse bg-surface"
+      />
+    ))}
+  </div>
+) : results.length === 0 ?  (
               <EmptyState
                 title="Nothing matches."
                 body="Try widening your filters or clearing the search."
