@@ -1,3 +1,12 @@
+<div align="center">
+
+<img src="./public/nova-logo.png" alt="NØVA Logo" width="180"/>
+
+# NØVA
+
+### Premium Fashion E-Commerce
+
+</div>
 # NØVA — Premium Fashion E-Commerce
 
 NØVA is a modern fashion e-commerce platform focused on premium streetwear and contemporary fashion.
