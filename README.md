@@ -1,29 +1,83 @@
-# Welcome to your Lovable project
+# NØVA — Premium Fashion E-Commerce
 
-This project was built with [Lovable](https://lovable.dev).
+NØVA is a modern fashion e-commerce platform focused on premium streetwear and contemporary fashion.
 
-## Build with Lovable
+The application provides product browsing, categories, product details, wishlist, cart, authentication, orders, and a Django REST API backend.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## Tech Stack
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+### Frontend
 
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
-
-## Built with
-
-- TanStack Start
-- TypeScript
 - React
+- TypeScript
+- Vite
 - Tailwind CSS
+- TanStack Router
+- Lucide React
+
+### Backend
+
+- Python
+- Django
+- Django REST Framework
+- SQLite for local development
+- MySQL/PostgreSQL compatible production setup
+
+### Other
+
+- REST API
+- Git & GitHub
+- Responsive design
+- Product image management
+
+## Features
+
+- Premium fashion product catalog
+- Men's, Women's and Unisex collections
+- Streetwear collection
+- Sneakers collection
+- Accessories collection
+- Product search and filtering
+- Product detail pages
+- Product image gallery
+- Hover image preview
+- Wishlist
+- Shopping cart
+- User authentication
+- Order management
+- Product variants
+- Stock management
+- Coming Soon products
+- Django REST API integration
+- Responsive design
+
+## Project Structure
+
+```text
+NOVA/
+│
+├── backend/
+│   ├── accounts/
+│   ├── cart/
+│   ├── config/
+│   ├── members/
+│   ├── orders/
+│   ├── products/
+│   ├── reviews/
+│   ├── wishlist/
+│   ├── media/
+│   └── manage.py
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   ├── routes/
+│   ├── store/
+│   ├── lib/
+│   └── types/
+│
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+└── README.md
