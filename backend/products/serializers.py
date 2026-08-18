@@ -1,4 +1,5 @@
 from rest_framework import serializers
+import cloudinary.utils
 
 from .models import (
     Category,
@@ -8,9 +9,7 @@ from .models import (
 )
 
 
-class ProductImageSerializer(
-    serializers.ModelSerializer
-):
+class ProductImageSerializer(serializers.ModelSerializer):
 
     image = serializers.SerializerMethodField()
 
@@ -24,21 +23,20 @@ class ProductImageSerializer(
 
     def get_image(self, obj):
 
-        request = self.context.get(
-            'request'
+        if not obj.image:
+            return None
+
+        public_id = str(obj.image.name)
+
+        url, options = cloudinary.utils.cloudinary_url(
+            public_id,
+            secure=True
         )
 
-        if request:
-            return request.build_absolute_uri(
-                obj.image.url
-            )
-
-        return obj.image.url
+        return url
 
 
-class ProductVariantSerializer(
-    serializers.ModelSerializer
-):
+class ProductVariantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductVariant
@@ -50,9 +48,7 @@ class ProductVariantSerializer(
         ]
 
 
-class CategorySerializer(
-    serializers.ModelSerializer
-):
+class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
@@ -65,9 +61,7 @@ class CategorySerializer(
         ]
 
 
-class ProductSerializer(
-    serializers.ModelSerializer
-):
+class ProductSerializer(serializers.ModelSerializer):
 
     images = ProductImageSerializer(
         many=True,
@@ -96,13 +90,9 @@ class ProductSerializer(
             'brand',
             'stock',
             'is_active',
-
-            # NEW
             'gender',
-
             'created_at',
             'updated_at',
-
             'category',
             'images',
             'variants',

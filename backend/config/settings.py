@@ -77,6 +77,8 @@ INSTALLED_APPS = [
     "cart",
     "wishlist",
     "orders",
+    'cloudinary',
+'cloudinary_storage',
 ]
 
 
@@ -279,3 +281,12 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
     SECURE_HSTS_PRELOAD = True
+    # Cloudinary media storage
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
