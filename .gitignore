@@ -49,3 +49,4 @@ backend/.env
 *.njsproj
 *.sln
 *.sw?
+backend/data.json
