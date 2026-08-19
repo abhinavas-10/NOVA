@@ -7,7 +7,8 @@ import type {
 } from "@/types";
 
 export const API_BASE =
-  "http://127.0.0.1:8000/api";
+"https://nova-backend-hg36.onrender.com";
+  
 
 
 // =====================================================
@@ -265,120 +266,74 @@ function categoryMatches(
     );
 
 
-  // ---------------------------------------------------
-  // GENDER
-  // ---------------------------------------------------
+ // ---------------------------------------------------
+// GENDER
+// ---------------------------------------------------
 
-  const gender =
-    normalizeCategory(
-      product.gender
-    );
-
-
-  // Men
-  if (
-    CATEGORY_ALIASES.men.includes(
-      requested
-    )
-  ) {
-
-    return (
-      CATEGORY_ALIASES.men.includes(
-        gender
-      ) ||
-      CATEGORY_ALIASES.men.includes(
-        normalizeCategory(
-          product.category?.slug
-        )
-      ) ||
-      CATEGORY_ALIASES.men.includes(
-        normalizeCategory(
-          product.category?.name
-        )
-      )
-    );
-
-  }
+const gender =
+  normalizeCategory(
+    product.gender
+  );
 
 
-  // Women
-  if (
-    CATEGORY_ALIASES.women.includes(
-      requested
-    )
-  ) {
-
-    return (
-      CATEGORY_ALIASES.women.includes(
-        gender
-      ) ||
-      CATEGORY_ALIASES.women.includes(
-        normalizeCategory(
-          product.category?.slug
-        )
-      ) ||
-      CATEGORY_ALIASES.women.includes(
-        normalizeCategory(
-          product.category?.name
-        )
-      )
-    );
-
-  }
+// Men
+if (
+  CATEGORY_ALIASES.men.includes(
+    requested
+  )
+) {
+  return CATEGORY_ALIASES.men.includes(
+    gender
+  );
+}
 
 
-  // Unisex
-  if (
-    CATEGORY_ALIASES.unisex.includes(
-      requested
-    )
-  ) {
-
-    return (
-      CATEGORY_ALIASES.unisex.includes(
-        gender
-      ) ||
-      CATEGORY_ALIASES.unisex.includes(
-        normalizeCategory(
-          product.category?.slug
-        )
-      ) ||
-      CATEGORY_ALIASES.unisex.includes(
-        normalizeCategory(
-          product.category?.name
-        )
-      )
-    );
-
-  }
+// Women
+if (
+  CATEGORY_ALIASES.women.includes(
+    requested
+  )
+) {
+  return CATEGORY_ALIASES.women.includes(
+    gender
+  );
+}
 
 
-  // ---------------------------------------------------
-  // NORMAL CATEGORY
-  // ---------------------------------------------------
-
-  const djangoSlug =
-    normalizeCategory(
-      product.category?.slug
-    );
-
-
-  const djangoName =
-    normalizeCategory(
-      product.category?.name
-    );
+// Unisex
+if (
+  CATEGORY_ALIASES.unisex.includes(
+    requested
+  )
+) {
+  return CATEGORY_ALIASES.unisex.includes(
+    gender
+  );
+}
 
 
-  // Exact match
+// ---------------------------------------------------
+// NORMAL CATEGORY
+// ---------------------------------------------------
 
-  if (
-    djangoSlug === requested ||
-    djangoName === requested
-  ) {
+const djangoSlug =
+  normalizeCategory(
+    product.category?.slug
+  );
 
-    return true;
+const djangoName =
+  normalizeCategory(
+    product.category?.name
+  );
 
-  }
+
+// Exact match
+if (
+  djangoSlug === requested ||
+  djangoName === requested
+) {
+  return true;
+}
 
 
   // Aliases
@@ -705,7 +660,7 @@ export const productService = {
 
     const response =
       await fetch(
-        `${API_BASE}/products/`
+        `${API_BASE}/api/products/`
       );
 
 
@@ -782,7 +737,7 @@ export const productService = {
 
       const response =
         await fetch(
-          `${API_BASE}/products/`
+          `${API_BASE}/api/products/`
         );
 
 
@@ -860,16 +815,18 @@ export const productService = {
   // ---------------------------------------------------
   // NEW DROPS
   // ---------------------------------------------------
-
- newDrops: async (n = 6): Promise<Product[]> => {
+newDrops: async (n = 6): Promise<Product[]> => {
   const products = await productService.list();
 
-  return products.slice(
-    0,
-    n
-  );
+  return [...products]
+    .sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() -
+        new Date(a.createdAt).getTime()
+    )
+    .slice(0, n);
 },
-
+ 
 
   // ---------------------------------------------------
   // TRENDING
@@ -902,7 +859,7 @@ export const productService = {
 
     const response =
       await fetch(
-        `${API_BASE}/products/`
+        `${API_BASE}/api/products/`
       );
 
 
@@ -1036,7 +993,7 @@ export const categoryService = {
 
     const response =
       await fetch(
-        `${API_BASE}/products/categories/`
+        `${API_BASE}/api/products/categories/`
       );
 
 
