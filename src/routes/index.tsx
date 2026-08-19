@@ -117,58 +117,69 @@ function Hero() {
     </section>
   );
 }
-
-
 // =====================================================
 // NEW DROPS
 // =====================================================
+
 function NewDrops() {
   const [drops, setDrops] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [bomber, setBomber] = useState<Product | null>(null);
-  const [hoodie, setHoodie] = useState<Product | null>(null);
 
   useEffect(() => {
-    // Load the normal New Drops products.
-    productService
-      .newDrops(6)
-      .then((data) => {
-        setDrops(Array.isArray(data) ? data : []);
-      })
-      .catch((error) => {
-        console.error("Failed to load new drops:", error);
+    const loadNewDrops = async () => {
+      try {
+        // Get more products so we have enough products
+        // with real images to display.
+        const data = await productService.list();
+
+        const products = Array.isArray(data)
+          ? data
+          : [];
+
+        // Keep ONLY products that actually have images.
+        const productsWithImages = products.filter(
+          (product) =>
+            Array.isArray(product.images) &&
+            product.images.some(
+              (image) =>
+                typeof image === "string" &&
+                image.trim().length > 0
+            )
+        );
+
+        // Remove duplicate products.
+        const uniqueProducts = Array.from(
+          new Map(
+            productsWithImages.map((product) => [
+              String(product.id),
+              product,
+            ])
+          ).values()
+        );
+
+        // If New Drops contains products without images,
+        // don't show them as "COMING SOON".
+        setDrops(uniqueProducts.slice(0, 6));
+      } catch (error) {
+        console.error(
+          "Failed to load new drops:",
+          error
+        );
+
         setDrops([]);
-      })
-      .finally(() => {
+      } finally {
         setLoading(false);
-      });
+      }
+    };
 
-    // Load the Bomber Jacket from Django.
-    productService
-      .get("38")
-      .then((product) => {
-        setBomber(product);
-      })
-      .catch((error) => {
-        console.error("Failed to load bomber jacket:", error);
-        setBomber(null);
-      });
-
-    // Load the Hoodie from Django.
-    productService
-      .get("37")
-      .then((product) => {
-        setHoodie(product);
-      })
-      .catch((error) => {
-        console.error("Failed to load hoodie:", error);
-        setHoodie(null);
-      });
+    loadNewDrops();
   }, []);
 
   if (loading) {
     return (
-      <section className={`${SECTION} py-24 sm:py-32`}>
+      <section
+        className={`${SECTION} py-24 sm:py-32`}
+      >
         <SectionHeading
           title="New Drops"
           index="01 / 06"
@@ -192,7 +203,9 @@ function NewDrops() {
 
   if (!featured) {
     return (
-      <section className={`${SECTION} py-24 sm:py-32`}>
+      <section
+        className={`${SECTION} py-24 sm:py-32`}
+      >
         <SectionHeading
           title="New Drops"
           index="01 / 06"
@@ -201,14 +214,16 @@ function NewDrops() {
         />
 
         <p className="mt-10 text-sm text-muted-foreground">
-          No new products available right now.
+          No products with images available right now.
         </p>
       </section>
     );
   }
 
   return (
-    <section className={`${SECTION} py-24 sm:py-32`}>
+    <section
+      className={`${SECTION} py-24 sm:py-32`}
+    >
       <SectionHeading
         title="New Drops"
         index="01 / 06"
@@ -217,7 +232,10 @@ function NewDrops() {
       />
 
       <div className="mt-12 grid gap-x-6 gap-y-14 lg:grid-cols-12">
-        {/* FEATURED PRODUCT */}
+
+        {/* =========================================
+            FEATURED PRODUCT
+        ========================================= */}
         <Reveal className="lg:col-span-7">
           <ProductCard
             product={featured}
@@ -225,65 +243,50 @@ function NewDrops() {
           />
         </Reveal>
 
-        {/* RIGHT SIDE */}
+        {/* =========================================
+            RIGHT SIDE PRODUCTS
+        ========================================= */}
         <div className="grid grid-cols-2 gap-6 lg:col-span-5">
-          {/* FIRST NORMAL NEW DROP */}
-          {rest.slice(0, 1).map((product, index) => (
-            <Reveal
-              key={product.id}
-              delay={80 * (index + 1)}
-              className="self-start"
-            >
-              <ProductCard product={product} />
-            </Reveal>
-          ))}
 
-          {/* SECOND NORMAL NEW DROP */}
-          {rest.slice(1, 2).map((product, index) => (
-            <Reveal
-              key={product.id}
-              delay={80 * (index + 2)}
-              className="self-start"
-            >
-              <ProductCard product={product} />
-            </Reveal>
-          ))}
-
-          {/* BOMBER JACKET - DJANGO PRODUCT ID 38 */}
-          {bomber && (
-            <Reveal
-              delay={160}
-              className="self-start"
-            >
-              <ProductCard product={bomber} />
-            </Reveal>
+          {rest.slice(0, 4).map(
+            (product, index) => (
+              <Reveal
+                key={product.id}
+                delay={80 * (index + 1)}
+                className="self-start"
+              >
+                <ProductCard
+                  product={product}
+                />
+              </Reveal>
+            )
           )}
 
-          {/* HOODIE - DJANGO PRODUCT ID 37 */}
-          {hoodie && (
-            <Reveal
-              delay={220}
-              className="self-start"
-            >
-              <ProductCard product={hoodie} />
-            </Reveal>
-          )}
         </div>
 
-        {/* REMAINING NORMAL PRODUCTS */}
-        {rest.slice(2).map((product, index) => (
-          <Reveal
-            key={product.id}
-            delay={60 * index}
-            className="col-span-6 sm:col-span-4 lg:col-span-4"
-          >
-            <ProductCard product={product} />
-          </Reveal>
-        ))}
+        {/* =========================================
+            REMAINING PRODUCTS
+        ========================================= */}
+        {rest.slice(4).map(
+          (product, index) => (
+            <Reveal
+              key={product.id}
+              delay={60 * index}
+              className="col-span-6 sm:col-span-4 lg:col-span-4"
+            >
+              <ProductCard
+                product={product}
+              />
+            </Reveal>
+          )
+        )}
+
       </div>
     </section>
   );
 }
+
+
 
 // =====================================================
 // ERA CAMPAIGN
