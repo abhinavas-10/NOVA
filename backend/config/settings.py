@@ -109,7 +109,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://localhost:5173",
-    "https://nova-kohl-gamma.vercel.app",
+    "https://nova-fashion-house.vercel.app",
 ]
 
 frontend_url = os.getenv(
