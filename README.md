@@ -1,40 +1,45 @@
 <div align="center">
 
+<img src="./public/nova-logo.png" alt="NØVA Logo" width="180"/>
+
 # NØVA
 
 ### Premium Fashion E-Commerce Platform
 
-A modern full-stack fashion e-commerce application built with React, TypeScript, Django, and Django REST Framework.
+A modern full-stack fashion e-commerce platform built with **React, TypeScript, Django, and Django REST Framework**.
+
+<br />
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-black?style=for-the-badge)](https://nova-fashion-house.vercel.app/)
+[![Backend API](https://img.shields.io/badge/Backend-API-success?style=for-the-badge)](https://nova-backend-hg36.onrender.com/api/products/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/abhinavas-10/NOVA)
 
 </div>
 
 ---
 
-## 🌐 Live Demo
-
-### Frontend
-
-https://nova-fashion-house.vercel.app/
-
-### Backend API
-
-https://nova-backend-hg36.onrender.com/api/products/
-
----
-
-## 📖 About The Project
+## ✨ Overview
 
 **NØVA** is a modern full-stack fashion e-commerce platform focused on premium streetwear and contemporary fashion.
 
-The application allows users to explore different fashion collections, view product details, manage their wishlist and shopping cart, authenticate their accounts, and manage orders.
+Users can explore collections, discover new drops, view detailed products, select sizes and colors, manage their wishlist and shopping cart, authenticate their accounts, and manage orders.
 
-The frontend communicates with a Django REST API backend to provide dynamic product data and e-commerce functionality.
+The application uses a **React + TypeScript frontend** connected to a **Django REST API backend**, providing dynamic product data and e-commerce functionality.
 
 ---
 
-## ✨ Features
+## 🌐 Live Demo
 
-### 🛍️ Product Experience
+| Service | Link |
+|---|---|
+| 🛍️ **Live Website** | [nova-fashion-house.vercel.app](https://nova-fashion-house.vercel.app/) |
+| ⚙️ **Backend API** | [Render API](https://nova-backend-hg36.onrender.com/api/products/) |
+
+---
+
+# 🛍️ Features
+
+## Product Experience
 
 - Premium fashion product catalog
 - Men's collection
@@ -52,30 +57,20 @@ The frontend communicates with a Django REST API backend to provide dynamic prod
 - Product variants
 - Size and color selection
 
-### ❤️ User Features
+## User Features
 
-- User authentication
-- Wishlist management
-- Shopping cart
-- Add and remove products
-- Quantity management
-- Order management
-
-### ⚙️ Technical Features
-
-- Django REST API
-- Dynamic product data
-- Product image management
-- Cloud-based media storage
-- Responsive design
-- RESTful API architecture
-- Frontend and backend deployment
+- 🔐 User authentication
+- ❤️ Wishlist management
+- 🛒 Shopping cart
+- ➕ Add and remove products
+- 🔢 Quantity management
+- 📦 Order management
 
 ---
 
-## 🛠️ Tech Stack
+# 🧰 Tech Stack
 
-### Frontend
+## Frontend
 
 | Technology | Purpose |
 |---|---|
@@ -86,7 +81,7 @@ The frontend communicates with a Django REST API backend to provide dynamic prod
 | TanStack Router | Client-side Routing |
 | Lucide React | Icons |
 
-### Backend
+## Backend
 
 | Technology | Purpose |
 |---|---|
@@ -96,7 +91,7 @@ The frontend communicates with a Django REST API backend to provide dynamic prod
 | JWT | Authentication |
 | Gunicorn | Production Server |
 
-### Database & Storage
+## Database & Storage
 
 | Technology | Purpose |
 |---|---|
@@ -104,7 +99,7 @@ The frontend communicates with a Django REST API backend to provide dynamic prod
 | PostgreSQL | Production Database |
 | Cloudinary | Product Image Storage |
 
-### Deployment
+## Deployment
 
 | Platform | Purpose |
 |---|---|
@@ -114,216 +109,26 @@ The frontend communicates with a Django REST API backend to provide dynamic prod
 
 ---
 
-## 📂 Project Structure
+# 🏗️ Architecture
 
 ```text
-NOVA/
-│
-├── backend/
-│   │
-│   ├── cart/                    # Shopping cart functionality
-│   ├── config/                  # Django project configuration
-│   ├── members/                 # User authentication and accounts
-│   ├── orders/                  # Order management
-│   ├── products/                # Products and categories
-│   ├── wishlist/                # Wishlist functionality
-│   │
-│   ├── media/                   # Product media files
-│   ├── staticfiles/             # Django static files
-│   ├── manage.py
-│   └── requirements.txt
-│
-├── public/
-│   ├── coming-soon.png
-│   └── nova-logo.png
-│
-├── src/
-│   ├── components/              # Reusable React components
-│   ├── lib/                     # Utility functions
-│   ├── routes/                  # Application routes
-│   ├── services/                # API services
-│   ├── store/                   # Application state management
-│   └── types/                   # TypeScript types
-│
-├── package.json
-├── vite.config.ts
-├── tsconfig.json
-└── README.md
-```
-
----
-
-## 🔌 API Integration
-
-The React frontend communicates with the Django REST API.
-
-Example API endpoint:
-
-```text
-GET /api/products/
-```
-
-Production API:
-
-```text
-https://nova-backend-hg36.onrender.com/api/products/
-```
-
----
-
-## 💻 Run Locally
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/abhinavas-10/NOVA.git
-```
-
-```bash
-cd NOVA
-```
-
----
-
-## 🎨 Frontend Setup
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Create a `.env` file:
-
-```env
-VITE_API_BASE_URL=http://127.0.0.1:8000
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-The frontend will run on:
-
-```text
-http://localhost:8080
-```
-
----
-
-## ⚙️ Backend Setup
-
-Navigate to the backend folder:
-
-```bash
-cd backend
-```
-
-Create a virtual environment:
-
-```bash
-python -m venv venv
-```
-
-Activate the virtual environment.
-
-### Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Create a `.env` file and configure your database settings.
-
-Run migrations:
-
-```bash
-python manage.py migrate
-```
-
-Start the Django server:
-
-```bash
-python manage.py runserver
-```
-
-The backend will run on:
-
-```text
-http://127.0.0.1:8000
-```
-
----
-
-## 🚀 Deployment
-
-### Frontend
-
-The React frontend is deployed on **Vercel**.
-
-**Live Website:**
-
-https://nova-fashion-house.vercel.app/
-
-### Backend
-
-The Django REST API is deployed on **Render**.
-
-**API:**
-
-https://nova-backend-hg36.onrender.com/api/products/
-
----
-
-## 📸 Main Modules
-
-- Home Page
-- New Drops
-- Men's Collection
-- Women's Collection
-- Unisex Collection
-- Product Details
-- Wishlist
-- Shopping Cart
-- Authentication
-- Orders
-
----
-
-## 🔮 Future Improvements
-
-- Payment gateway integration
-- Product reviews and ratings
-- Admin analytics dashboard
-- Order tracking
-- Email notifications
-- Discount and coupon system
-- Improved inventory management
-- Recommendation system
-- AI-powered fashion recommendations
-
----
-
-## 👨‍💻 Author
-
-**Abhinav A S**
-
-- GitHub: https://github.com/abhinavas-10
-
----
-
-<div align="center">
-
-### ⭐ If you like this project, consider giving it a star!
-
-Built with ❤️ using React, TypeScript, Django, and Django REST Framework.
-
-</div>
+                    ┌─────────────────────┐
+                    │     NØVA Frontend   │
+                    │                     │
+                    │ React + TypeScript  │
+                    │ Vite + Tailwind CSS │
+                    └──────────┬──────────┘
+                               │
+                               │ REST API
+                               ▼
+                    ┌─────────────────────┐
+                    │    Django Backend   │
+                    │                     │
+                    │ Django REST API     │
+                    │ JWT Authentication  │
+                    └──────────┬──────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              ▼                ▼                ▼
+        PostgreSQL        Cloudinary        Authentication
+        Production DB     Image Storage        & Users
