@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./public/nova-logo.png" alt="NØVA Logo" width="180"/>
+<img src="./public/favicon.ico" alt="NØVA Logo" width="180"/>
 
 # NØVA
 
