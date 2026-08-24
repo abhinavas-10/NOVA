@@ -6,7 +6,7 @@
 
 ### Premium Fashion E-Commerce Platform
 
-A modern full-stack fashion e-commerce platform built with **React, TypeScript, Django, and Django REST Framework**.
+A modern full-stack fashion e-commerce platform built with **React, TypeScript, Python, Django, and Django REST Framework**.
 
 <br />
 
@@ -18,17 +18,17 @@ A modern full-stack fashion e-commerce platform built with **React, TypeScript, 
 
 ---
 
-## ✨ Overview
+# ✨ Overview
 
 **NØVA** is a modern full-stack fashion e-commerce platform focused on premium streetwear and contemporary fashion.
 
 Users can explore collections, discover new drops, view detailed products, select sizes and colors, manage their wishlist and shopping cart, authenticate their accounts, and manage orders.
 
-The application uses a **React + TypeScript frontend** connected to a **Django REST API backend**, providing dynamic product data and e-commerce functionality.
+The application uses a **React + TypeScript frontend** connected to a **Python Django REST API backend**, providing dynamic product data and e-commerce functionality.
 
 ---
 
-## 🌐 Live Demo
+# 🌐 Live Demo
 
 | Service | Link |
 |---|---|
@@ -85,9 +85,9 @@ The application uses a **React + TypeScript frontend** connected to a **Django R
 
 | Technology | Purpose |
 |---|---|
-| Python | Backend Language |
+| Python | Backend Programming Language |
 | Django | Web Framework |
-| Django REST Framework | REST API |
+| Django REST Framework | REST API Development |
 | JWT | Authentication |
 | Gunicorn | Production Server |
 
@@ -95,7 +95,7 @@ The application uses a **React + TypeScript frontend** connected to a **Django R
 
 | Technology | Purpose |
 |---|---|
-| MySQL | Local Database |
+| MySQL | Local Development Database |
 | PostgreSQL | Production Database |
 | Cloudinary | Product Image Storage |
 
@@ -112,23 +112,27 @@ The application uses a **React + TypeScript frontend** connected to a **Django R
 # 🏗️ Architecture
 
 ```text
-                    ┌─────────────────────┐
-                    │     NØVA Frontend   │
-                    │                     │
-                    │ React + TypeScript  │
-                    │ Vite + Tailwind CSS │
-                    └──────────┬──────────┘
-                               │
-                               │ REST API
-                               ▼
-                    ┌─────────────────────┐
-                    │    Django Backend   │
-                    │                     │
-                    │ Django REST API     │
-                    │ JWT Authentication  │
-                    └──────────┬──────────┘
-                               │
-              ┌────────────────┼────────────────┐
-              ▼                ▼                ▼
-        PostgreSQL        Cloudinary        Authentication
-        Production DB     Image Storage        & Users
+                         ┌───────────────────────┐
+                         │     NØVA FRONTEND     │
+                         │                       │
+                         │   React + TypeScript   │
+                         │   Vite + Tailwind CSS  │
+                         └───────────┬───────────┘
+                                     │
+                                     │ REST API
+                                     ▼
+                         ┌───────────────────────┐
+                         │     PYTHON BACKEND    │
+                         │                       │
+                         │   Python + Django     │
+                         │ Django REST Framework │
+                         │   JWT Authentication  │
+                         └───────────┬───────────┘
+                                     │
+                  ┌──────────────────┼──────────────────┐
+                  │                  │                  │
+                  ▼                  ▼                  ▼
+          ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+          │ PostgreSQL   │   │  Cloudinary  │   │ Authentication│
+          │ Production DB│   │ Image Storage│   │    & Users    │
+          └──────────────┘   └──────────────┘   └──────────────┘
