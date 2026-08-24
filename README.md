@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="./public/nova-logo.png" alt="NØVA Logo" width="180"/>
-
 # NØVA
 
 ### Premium Fashion E-Commerce Platform
