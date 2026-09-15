@@ -5,10 +5,22 @@ import type {
   ProductFilters,
   Review,
 } from "@/types";
+import { productById, products as seedProducts } from "@/data/products";
 
 export const API_BASE =
 "https://nova-backend-hg36.onrender.com";
-  
+
+const productsCache = new Map<string, Product>();
+
+function cacheProduct(product: Product) {
+  if (!product) return;
+  productsCache.set(String(product.id), product);
+  if (product.slug) {
+    productsCache.set(product.slug, product);
+  }
+}
+
+seedProducts.forEach(cacheProduct);
 
 
 // =====================================================
@@ -701,6 +713,7 @@ export const productService = {
           mapDjangoProduct
         );
 
+    products.forEach(cacheProduct);
 
     return filterProducts(
       products,
@@ -716,11 +729,11 @@ export const productService = {
 
   listSync: () => {
 
-    console.warn(
-      "listSync() is deprecated. Use await productService.list()."
-    );
+    if (productsCache.size > 0) {
+      return Array.from(new Set(productsCache.values()));
+    }
 
-    return [] as Product[];
+    return seedProducts;
 
   },
 
@@ -734,6 +747,11 @@ export const productService = {
   ): Promise<Product | null> => {
 
     try {
+
+      const cached = productsCache.get(String(id));
+      if (cached) {
+        return cached;
+      }
 
       const response =
         await fetch(
@@ -758,7 +776,7 @@ export const productService = {
         !Array.isArray(data)
       ) {
 
-        return null;
+        return productById(id) ?? null;
 
       }
 
@@ -774,14 +792,16 @@ export const productService = {
 
       if (!product) {
 
-        return null;
+        return productById(id) ?? null;
 
       }
 
 
-      return mapDjangoProduct(
+      const mapped = mapDjangoProduct(
         product
       );
+      cacheProduct(mapped);
+      return mapped;
 
     } catch (error) {
 
@@ -790,7 +810,49 @@ export const productService = {
         error
       );
 
-      return null;
+      return productById(id) ?? null;
+
+    }
+
+  },
+
+
+  // ---------------------------------------------------
+  // GET MANY PRODUCTS
+  // ---------------------------------------------------
+
+  getMany: async (
+    ids: string[]
+  ): Promise<Product[]> => {
+
+    if (!ids || ids.length === 0) {
+      return [];
+    }
+
+    try {
+
+      const all = await productService.list();
+      const map = new Map<string, Product>();
+      all.forEach((p) => {
+        map.set(String(p.id), p);
+        if (p.slug) map.set(p.slug, p);
+      });
+
+      return ids
+        .map((id) => map.get(String(id)) ?? productService.getSync(id))
+        .filter((p): p is Product => Boolean(p));
+
+    } catch (error) {
+
+      console.error(
+        "Failed to get products for ids:",
+        ids,
+        error
+      );
+
+      return ids
+        .map((id) => productService.getSync(id))
+        .filter((p): p is Product => Boolean(p));
 
     }
 
@@ -801,13 +863,12 @@ export const productService = {
   // SYNC GET
   // ---------------------------------------------------
 
-  getSync: () => {
+  getSync: (id: string): Product | null => {
 
-    console.warn(
-      "getSync() is deprecated. Use await productService.get()."
-    );
-
-    return null;
+    if (!id) return null;
+    const cached = productsCache.get(String(id));
+    if (cached) return cached;
+    return productById(id) ?? null;
 
   },
 

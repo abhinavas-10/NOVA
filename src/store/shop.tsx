@@ -36,6 +36,7 @@ const KEY = "nova.state.v1";
 interface Persisted {
   cart: CartItem[];
   wishlist: string[];
+  userWishlists?: Record<string, string[]>;
   user: User | null;
   recent: string[];
   placedOrders: Order[];
@@ -45,6 +46,7 @@ interface Persisted {
 const EMPTY: Persisted = {
   cart: [],
   wishlist: [],
+  userWishlists: {},
   user: null,
   recent: [],
   placedOrders: [],
@@ -168,16 +170,26 @@ export function ShopProvider({
       const saved =
         JSON.parse(raw) as Partial<Persisted>;
 
+      const user = saved.user ?? null;
+      const userWishlists = saved.userWishlists ?? {};
+
+      let activeWishlist: string[] = [];
+      if (user) {
+        const userKey = user.email || user.id;
+        activeWishlist = userWishlists[userKey] ?? saved.wishlist ?? [];
+        userWishlists[userKey] = activeWishlist;
+      }
+
       setState({
         ...EMPTY,
         ...saved,
         cart: saved.cart ?? [],
-        wishlist: saved.wishlist ?? [],
+        wishlist: activeWishlist,
+        userWishlists,
         recent: saved.recent ?? [],
         placedOrders:
           saved.placedOrders ?? [],
-        user:
-          saved.user ?? null,
+        user,
       });
 
     } catch (error) {
@@ -391,48 +403,58 @@ export function ShopProvider({
     useCallback(
       (productId: string) => {
 
+        const stringId = String(productId);
+
         setState((current) => {
 
-          const exists =
-            current.wishlist.includes(
-              productId
-            );
+          if (!current.user) {
+            toast.error("Please sign in to save items to your wishlist.");
+            return current;
+          }
 
+          const userKey = current.user.email || current.user.id || "default";
+          const exists = current.wishlist.some(
+            (id) => String(id) === stringId
+          );
 
           if (exists) {
 
-            toast(
-              "Removed from wishlist"
+            toast("Removed from wishlist");
+
+            const nextWishlist = current.wishlist.filter(
+              (id) => String(id) !== stringId
             );
+
+            return {
+              ...current,
+              wishlist: nextWishlist,
+              userWishlists: {
+                ...(current.userWishlists ?? {}),
+                [userKey]: nextWishlist,
+              },
+            };
 
           } else {
 
-            toast(
-              "Saved to wishlist"
-            );
+            toast("Saved to wishlist");
+
+            const nextWishlist = [
+              stringId,
+              ...current.wishlist.filter(
+                (id) => String(id) !== stringId
+              ),
+            ];
+
+            return {
+              ...current,
+              wishlist: nextWishlist,
+              userWishlists: {
+                ...(current.userWishlists ?? {}),
+                [userKey]: nextWishlist,
+              },
+            };
 
           }
-
-
-          return {
-
-            ...current,
-
-            wishlist:
-
-              exists
-
-                ? current.wishlist.filter(
-                    (id) =>
-                      id !== productId
-                  )
-
-                : [
-                    productId,
-                    ...current.wishlist,
-                  ],
-
-          };
 
         });
 
@@ -449,17 +471,29 @@ export function ShopProvider({
     useCallback(
       (productId: string) => {
 
-        setState((current) => ({
+        const stringId = String(productId);
 
-          ...current,
+        setState((current) => {
 
-          wishlist:
-            current.wishlist.filter(
-              (id) =>
-                id !== productId
-            ),
+          const nextWishlist = current.wishlist.filter(
+            (id) => String(id) !== stringId
+          );
 
-        }));
+          const userKey = current.user?.email || current.user?.id;
+          const userWishlists = userKey
+            ? {
+                ...(current.userWishlists ?? {}),
+                [userKey]: nextWishlist,
+              }
+            : (current.userWishlists ?? {});
+
+          return {
+            ...current,
+            wishlist: nextWishlist,
+            userWishlists,
+          };
+
+        });
 
       },
       []
@@ -506,34 +540,33 @@ export function ShopProvider({
         name?: string
       ) => {
 
-        setState((current) => ({
+        const newUser: User = {
+          id: "usr-local",
+          name:
+            name ||
+            email.split("@")[0] ||
+            "NØVA Member",
+          email,
+          joinedAt:
+            new Date().toISOString(),
+          role:
+            email
+              .toLowerCase()
+              .startsWith("admin")
+              ? "admin"
+              : "customer",
+        };
 
-          ...current,
+        setState((current) => {
+          const userKey = newUser.email || newUser.id;
+          const userWishlist = current.userWishlists?.[userKey] ?? [];
 
-          user: {
-
-            id: "usr-local",
-
-            name:
-              name ||
-              email.split("@")[0] ||
-              "NØVA Member",
-
-            email,
-
-            joinedAt:
-              new Date().toISOString(),
-
-            role:
-              email
-                .toLowerCase()
-                .startsWith("admin")
-                ? "admin"
-                : "customer",
-
-          },
-
-        }));
+          return {
+            ...current,
+            user: newUser,
+            wishlist: userWishlist,
+          };
+        });
 
       },
       []
@@ -548,13 +581,22 @@ export function ShopProvider({
     useCallback(
       () => {
 
-        setState((current) => ({
+        setState((current) => {
+          const userKey = current.user?.email || current.user?.id;
+          const userWishlists = userKey
+            ? {
+                ...(current.userWishlists ?? {}),
+                [userKey]: current.wishlist,
+              }
+            : (current.userWishlists ?? {});
 
-          ...current,
-
-          user: null,
-
-        }));
+          return {
+            ...current,
+            user: null,
+            wishlist: [],
+            userWishlists,
+          };
+        });
 
       },
       []
@@ -795,10 +837,15 @@ export function ShopProvider({
     toggleWishlist,
 
     isWishlisted:
-      (productId) =>
-        state.wishlist.includes(
-          productId
-        ),
+      (productId) => {
+        if (!state.user) {
+          return false;
+        }
+        const stringId = String(productId);
+        return state.wishlist.some(
+          (id) => String(id) === stringId
+        );
+      },
 
     removeFromWishlist,
 

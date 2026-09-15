@@ -35,7 +35,7 @@ export function WishlistButton({
       className={cn(
         "grid h-9 w-9 place-items-center border border-border/70 bg-background/70 backdrop-blur-sm transition-colors hover:border-primary",
         active &&
-          "border-primary text-primary",
+          "border-primary text-primary !opacity-100",
         className,
       )}
     >
