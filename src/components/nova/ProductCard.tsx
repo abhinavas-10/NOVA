@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Heart, Plus } from "lucide-react";
+import { useState } from "react";
 import type { Product } from "@/types";
 import { inr } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -62,6 +63,13 @@ export function ProductCard({
   const { addToCart } = useShop();
 
   // ---------------------------------------------------
+  // HOVER STATE
+  // ---------------------------------------------------
+
+  const [isHovered, setIsHovered] =
+    useState(false);
+
+  // ---------------------------------------------------
   // PRODUCT IMAGES
   // ---------------------------------------------------
 
@@ -89,7 +97,15 @@ export function ProductCard({
     COMING_SOON_IMAGE;
 
   return (
-    <article className="group relative flex h-full flex-col">
+    <article
+      className="group relative flex h-full flex-col"
+      onMouseEnter={() =>
+        setIsHovered(true)
+      }
+      onMouseLeave={() =>
+        setIsHovered(false)
+      }
+    >
       <Link
         to="/product/$id"
         params={{
@@ -112,6 +128,7 @@ export function ProductCard({
                 src={first}
                 alt={product.name}
                 loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   const target =
                     e.currentTarget;
@@ -129,26 +146,29 @@ export function ProductCard({
               />
 
               {/* SECONDARY IMAGE */}
-              <img
-                src={second}
-                alt=""
-                aria-hidden
-                loading="lazy"
-                onError={(e) => {
-                  const target =
-                    e.currentTarget;
+              {isHovered && (
+                <img
+                  src={second}
+                  alt=""
+                  aria-hidden
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    const target =
+                      e.currentTarget;
 
-                  if (
-                    target.src !==
-                    window.location.origin +
-                      COMING_SOON_IMAGE
-                  ) {
-                    target.src =
-                      COMING_SOON_IMAGE;
-                  }
-                }}
-                className="absolute inset-0 h-full w-full scale-[1.03] object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-              />
+                    if (
+                      target.src !==
+                      window.location.origin +
+                        COMING_SOON_IMAGE
+                    ) {
+                      target.src =
+                        COMING_SOON_IMAGE;
+                    }
+                  }}
+                  className="absolute inset-0 h-full w-full scale-[1.03] object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                />
+              )}
             </>
           ) : (
             /* NO IMAGE */
@@ -157,6 +177,7 @@ export function ProductCard({
                 src={COMING_SOON_IMAGE}
                 alt={`${product.name} coming soon`}
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
 

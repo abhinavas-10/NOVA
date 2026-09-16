@@ -30,7 +30,19 @@ class ProductImageSerializer(serializers.ModelSerializer):
 
         url, options = cloudinary.utils.cloudinary_url(
             public_id,
-            secure=True
+            secure=True,
+            transformation=[
+                {
+                    "width": 600,
+                    "crop": "limit",
+                },
+                {
+                    "quality": "auto",
+                },
+                {
+                    "fetch_format": "auto",
+                },
+            ],
         )
 
         return url
