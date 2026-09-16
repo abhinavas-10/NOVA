@@ -70,6 +70,13 @@ export function ProductCard({
     useState(false);
 
   // ---------------------------------------------------
+  // IMAGE LOADING STATE
+  // ---------------------------------------------------
+
+  const [imageLoaded, setImageLoaded] =
+    useState(false);
+
+  // ---------------------------------------------------
   // PRODUCT IMAGES
   // ---------------------------------------------------
 
@@ -123,12 +130,20 @@ export function ProductCard({
         >
           {hasImage ? (
             <>
+              {/* IMAGE SKELETON */}
+              {!imageLoaded && (
+                <div className="absolute inset-0 animate-pulse bg-muted" />
+              )}
+
               {/* PRIMARY IMAGE */}
               <img
                 src={first}
                 alt={product.name}
                 loading="lazy"
                 decoding="async"
+                onLoad={() =>
+                  setImageLoaded(true)
+                }
                 onError={(e) => {
                   const target =
                     e.currentTarget;
@@ -140,9 +155,15 @@ export function ProductCard({
                   ) {
                     target.src =
                       COMING_SOON_IMAGE;
+                  } else {
+                    setImageLoaded(true);
                   }
                 }}
-                className="absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:opacity-0"
+                className={cn(
+                  "absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:opacity-0",
+                  !imageLoaded &&
+                    "opacity-0",
+                )}
               />
 
               {/* SECONDARY IMAGE */}
@@ -178,6 +199,9 @@ export function ProductCard({
                 alt={`${product.name} coming soon`}
                 loading="lazy"
                 decoding="async"
+                onLoad={() =>
+                  setImageLoaded(true)
+                }
                 className="h-full w-full object-cover"
               />
 

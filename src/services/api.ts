@@ -7,10 +7,11 @@ import type {
 } from "@/types";
 import { productById, products as seedProducts } from "@/data/products";
 
-export const API_BASE =
-"https://nova-backend-hg36.onrender.com";
+export const API_BASE = "https://nova-backend-hg36.onrender.com";
 
 const productsCache = new Map<string, Product>();
+
+let productsRequest: Promise<any[]> | null = null;
 
 function cacheProduct(product: Product) {
   if (!product) return;
@@ -21,6 +22,39 @@ function cacheProduct(product: Product) {
 }
 
 seedProducts.forEach(cacheProduct);
+
+async function fetchProductsOnce(): Promise<any[]> {
+  if (productsRequest) {
+    return productsRequest;
+  }
+
+  productsRequest = fetch(
+    `${API_BASE}/api/products/`
+  )
+    .then(async (response) => {
+      if (!response.ok) {
+        throw new Error(
+          "Failed to fetch products"
+        );
+      }
+
+      const data = await response.json();
+
+      if (!Array.isArray(data)) {
+        throw new Error(
+          "Products API returned invalid data"
+        );
+      }
+
+      return data;
+    })
+    .catch((error) => {
+      productsRequest = null;
+      throw error;
+    });
+
+  return productsRequest;
+}
 
 
 // =====================================================
@@ -670,23 +704,8 @@ export const productService = {
     filters?: ProductFilters
   ): Promise<Product[]> => {
 
-    const response =
-      await fetch(
-        `${API_BASE}/api/products/`
-      );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        "Failed to fetch products"
-      );
-
-    }
-
-
     const data =
-      await response.json();
+      await fetchProductsOnce();
 
 
     if (
@@ -753,23 +772,8 @@ export const productService = {
         return cached;
       }
 
-      const response =
-        await fetch(
-          `${API_BASE}/api/products/`
-        );
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          "Failed to fetch products"
-        );
-
-      }
-
-
       const data =
-        await response.json();
+      await fetchProductsOnce();
 
 
       if (
@@ -918,23 +922,8 @@ newDrops: async (n = 6): Promise<Product[]> => {
     n?: number
   ): Promise<Product[]> => {
 
-    const response =
-      await fetch(
-        `${API_BASE}/api/products/`
-      );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        "Failed to fetch products"
-      );
-
-    }
-
-
     const data =
-      await response.json();
+      await fetchProductsOnce();
 
 
     if (
