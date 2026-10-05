@@ -1,0 +1,112 @@
+[
+{
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "name": "Streetwear",
+    "slug": "streetwear",
+    "description": "Contemporary streetwear essentials",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "name": "Jackets",
+    "slug": "jackets",
+    "description": "N╪VA Jackets collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "Hoodies",
+    "slug": "hoodies",
+    "description": "N╪VA Hoodies collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "T-Shirts",
+    "slug": "t-shirts",
+    "description": "N╪VA T-Shirts collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 5,
+  "fields": {
+    "name": "Pants",
+    "slug": "pants",
+    "description": "N╪VA Pants collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 6,
+  "fields": {
+    "name": "Shorts",
+    "slug": "shorts",
+    "description": "N╪VA Shorts collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 7,
+  "fields": {
+    "name": "Sneakers",
+    "slug": "sneakers",
+    "description": "N╪VA Sneakers collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 8,
+  "fields": {
+    "name": "Accessories",
+    "slug": "accessories",
+    "description": "N╪VA Accessories collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 9,
+  "fields": {
+    "name": "Men",
+    "slug": "men",
+    "description": "Men's fashion collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 10,
+  "fields": {
+    "name": "Women",
+    "slug": "women",
+    "description": "Women's fashion collection",
+    "image": ""
+  }
+},
+{
+  "model": "products.category",
+  "pk": 11,
+  "fields": {
+    "name": "Unisex",
+    "slug": "unisex",
+    "description": "Unisex fashion collection",
+    "image": ""
+  }
+}
+]
