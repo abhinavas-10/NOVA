@@ -1,0 +1,1352 @@
+[
+{
+  "model": "products.product",
+  "pk": 29,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA Backpack",
+    "slug": "backpack",
+    "description": "Premium backpack from the N╪VA fashion collection.",
+    "price": "4299.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.351Z",
+    "updated_at": "2026-08-16T18:00:33.351Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 30,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA Beanie",
+    "slug": "beanie",
+    "description": "Premium beanie from the N╪VA fashion collection.",
+    "price": "1299.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.381Z",
+    "updated_at": "2026-08-16T18:00:33.381Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 31,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA Belt",
+    "slug": "belt",
+    "description": "Premium belt from the N╪VA fashion collection.",
+    "price": "1499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.420Z",
+    "updated_at": "2026-08-16T18:00:33.420Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 32,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA Cap",
+    "slug": "cap",
+    "description": "Premium cap from the N╪VA fashion collection.",
+    "price": "1299.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.457Z",
+    "updated_at": "2026-08-16T18:00:33.457Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 33,
+  "fields": {
+    "category": 5,
+    "gender": "men",
+    "name": "N╪VA Cargo Pants",
+    "slug": "cargo",
+    "description": "Premium cargo pants from the N╪VA fashion collection.",
+    "price": "4499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.496Z",
+    "updated_at": "2026-08-16T18:00:33.496Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 34,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA Crossbody Bag",
+    "slug": "crossbody",
+    "description": "Premium crossbody bag from the N╪VA fashion collection.",
+    "price": "2999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.527Z",
+    "updated_at": "2026-08-16T18:00:33.527Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 35,
+  "fields": {
+    "category": 5,
+    "gender": "women",
+    "name": "N╪VA Denim Jeans",
+    "slug": "denim",
+    "description": "Premium denim jeans from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.551Z",
+    "updated_at": "2026-08-16T18:00:33.551Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 36,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA Duffle Bag",
+    "slug": "duffle",
+    "description": "Premium duffle bag from the N╪VA fashion collection.",
+    "price": "3499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.574Z",
+    "updated_at": "2026-08-16T18:00:33.574Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 37,
+  "fields": {
+    "category": 3,
+    "gender": "women",
+    "name": "N╪VA Hoodie",
+    "slug": "hoodie",
+    "description": "Premium hoodie from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.591Z",
+    "updated_at": "2026-08-16T18:00:33.591Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 38,
+  "fields": {
+    "category": 2,
+    "gender": "men",
+    "name": "N╪VA Bomber Jacket",
+    "slug": "jacket-bomber",
+    "description": "Premium bomber jacket from the N╪VA fashion collection.",
+    "price": "6499.00",
+    "original_price": "7999.00",
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.611Z",
+    "updated_at": "2026-08-17T18:52:18.857Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 39,
+  "fields": {
+    "category": 2,
+    "gender": "women",
+    "name": "N╪VA Denim Jacket",
+    "slug": "jacket-denim",
+    "description": "Premium denim jacket from the N╪VA fashion collection.",
+    "price": "5999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.632Z",
+    "updated_at": "2026-08-16T18:00:33.632Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 40,
+  "fields": {
+    "category": 2,
+    "gender": "men",
+    "name": "N╪VA Tech Jacket",
+    "slug": "jacket-tech",
+    "description": "Premium tech jacket from the N╪VA fashion collection.",
+    "price": "7999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.648Z",
+    "updated_at": "2026-08-16T18:00:33.648Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 41,
+  "fields": {
+    "category": 5,
+    "gender": "women",
+    "name": "N╪VA Jogger",
+    "slug": "jogger",
+    "description": "Premium jogger from the N╪VA fashion collection.",
+    "price": "3499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.664Z",
+    "updated_at": "2026-08-16T18:00:33.664Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 42,
+  "fields": {
+    "category": 2,
+    "gender": "men",
+    "name": "N╪VA Overcoat",
+    "slug": "overcoat",
+    "description": "Premium overcoat from the N╪VA fashion collection.",
+    "price": "8999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.684Z",
+    "updated_at": "2026-08-16T18:00:33.684Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 43,
+  "fields": {
+    "category": 2,
+    "gender": "women",
+    "name": "N╪VA Puffer Jacket",
+    "slug": "puffer",
+    "description": "Premium puffer jacket from the N╪VA fashion collection.",
+    "price": "6999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.708Z",
+    "updated_at": "2026-08-16T18:00:33.708Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 44,
+  "fields": {
+    "category": 6,
+    "gender": "men",
+    "name": "N╪VA Cargo Shorts",
+    "slug": "shorts-cargo",
+    "description": "Premium cargo shorts from the N╪VA fashion collection.",
+    "price": "2999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.738Z",
+    "updated_at": "2026-08-16T18:00:33.738Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 45,
+  "fields": {
+    "category": 6,
+    "gender": "women",
+    "name": "N╪VA Denim Shorts",
+    "slug": "shorts-denim",
+    "description": "Premium denim shorts from the N╪VA fashion collection.",
+    "price": "2799.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.770Z",
+    "updated_at": "2026-08-16T18:00:33.770Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 46,
+  "fields": {
+    "category": 7,
+    "gender": "unisex",
+    "name": "N╪VA Sneakers",
+    "slug": "sneaker",
+    "description": "Premium sneakers from the N╪VA fashion collection.",
+    "price": "5999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.798Z",
+    "updated_at": "2026-08-16T18:00:33.798Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 47,
+  "fields": {
+    "category": 7,
+    "gender": "unisex",
+    "name": "N╪VA Low Sneakers",
+    "slug": "sneaker-low",
+    "description": "Premium low sneakers from the N╪VA fashion collection.",
+    "price": "5499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.819Z",
+    "updated_at": "2026-08-16T18:00:33.819Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 48,
+  "fields": {
+    "category": 7,
+    "gender": "unisex",
+    "name": "N╪VA Trail Sneakers",
+    "slug": "sneaker-trail",
+    "description": "Premium trail sneakers from the N╪VA fashion collection.",
+    "price": "6999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.841Z",
+    "updated_at": "2026-08-16T18:00:33.841Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 49,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA Sunglasses",
+    "slug": "sunglasses",
+    "description": "Premium sunglasses from the N╪VA fashion collection.",
+    "price": "2499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.869Z",
+    "updated_at": "2026-08-16T18:00:33.869Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 50,
+  "fields": {
+    "category": 3,
+    "gender": "women",
+    "name": "N╪VA Sweatshirt",
+    "slug": "sweatshirt",
+    "description": "Premium sweatshirt from the N╪VA fashion collection.",
+    "price": "3499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.897Z",
+    "updated_at": "2026-08-16T18:00:33.897Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 51,
+  "fields": {
+    "category": 4,
+    "gender": "women",
+    "name": "N╪VA Graphic T-Shirt",
+    "slug": "tee-graphic",
+    "description": "Premium graphic t-shirt from the N╪VA fashion collection.",
+    "price": "2499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.928Z",
+    "updated_at": "2026-08-16T18:00:33.928Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 52,
+  "fields": {
+    "category": 4,
+    "gender": "unisex",
+    "name": "N╪VA Heavy T-Shirt",
+    "slug": "tee-heavy",
+    "description": "Premium heavy t-shirt from the N╪VA fashion collection.",
+    "price": "2199.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.956Z",
+    "updated_at": "2026-08-16T18:00:33.956Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 53,
+  "fields": {
+    "category": 4,
+    "gender": "women",
+    "name": "N╪VA Oversized T-Shirt",
+    "slug": "tee-oversized",
+    "description": "Premium oversized t-shirt from the N╪VA fashion collection.",
+    "price": "2299.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:33.985Z",
+    "updated_at": "2026-08-16T18:00:33.985Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 54,
+  "fields": {
+    "category": 5,
+    "gender": "men",
+    "name": "N╪VA Trouser",
+    "slug": "trouser",
+    "description": "Premium trouser from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:34.007Z",
+    "updated_at": "2026-08-16T18:00:34.008Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 55,
+  "fields": {
+    "category": 1,
+    "gender": "unisex",
+    "name": "N╪VA Utility Vest",
+    "slug": "vest",
+    "description": "Premium utility vest from the N╪VA fashion collection.",
+    "price": "4499.00",
+    "original_price": null,
+    "brand": "N╪VA",
+    "stock": 0,
+    "is_active": true,
+    "created_at": "2026-08-16T18:00:34.028Z",
+    "updated_at": "2026-08-16T18:00:34.028Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 56,
+  "fields": {
+    "category": 4,
+    "gender": "men",
+    "name": "N╪VA Essential Oversized Tee",
+    "slug": "essential-oversized-tee",
+    "description": "Premium essential oversized tee from the N╪VA fashion collection.",
+    "price": "1999.00",
+    "original_price": "2499.00",
+    "brand": "N╪VA",
+    "stock": 50,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:38.570Z",
+    "updated_at": "2026-08-17T11:34:38.570Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 57,
+  "fields": {
+    "category": 4,
+    "gender": "men",
+    "name": "N╪VA Heavyweight Tee",
+    "slug": "heavyweight-tee",
+    "description": "Premium heavyweight tee from the N╪VA fashion collection.",
+    "price": "2299.00",
+    "original_price": "2999.00",
+    "brand": "N╪VA",
+    "stock": 45,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:38.655Z",
+    "updated_at": "2026-08-17T11:34:38.655Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 58,
+  "fields": {
+    "category": 5,
+    "gender": "men",
+    "name": "N╪VA Relaxed Cargo Pants",
+    "slug": "relaxed-cargo-pants",
+    "description": "Premium relaxed cargo pants from the N╪VA fashion collection.",
+    "price": "4499.00",
+    "original_price": "5499.00",
+    "brand": "N╪VA",
+    "stock": 40,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:38.746Z",
+    "updated_at": "2026-08-17T11:34:38.746Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 59,
+  "fields": {
+    "category": 5,
+    "gender": "men",
+    "name": "N╪VA Wide Leg Trouser",
+    "slug": "wide-leg-trouser",
+    "description": "Premium wide leg trouser from the N╪VA fashion collection.",
+    "price": "4299.00",
+    "original_price": "4999.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:38.826Z",
+    "updated_at": "2026-08-17T11:34:38.826Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 60,
+  "fields": {
+    "category": 2,
+    "gender": "men",
+    "name": "N╪VA Classic Bomber",
+    "slug": "classic-bomber",
+    "description": "Premium classic bomber from the N╪VA fashion collection.",
+    "price": "6499.00",
+    "original_price": "7999.00",
+    "brand": "N╪VA",
+    "stock": 25,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:38.896Z",
+    "updated_at": "2026-08-17T11:34:38.896Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 61,
+  "fields": {
+    "category": 2,
+    "gender": "men",
+    "name": "N╪VA Urban Tech Jacket",
+    "slug": "urban-tech-jacket",
+    "description": "Premium urban tech jacket from the N╪VA fashion collection.",
+    "price": "7499.00",
+    "original_price": "8999.00",
+    "brand": "N╪VA",
+    "stock": 20,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:38.961Z",
+    "updated_at": "2026-08-17T11:34:38.961Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 62,
+  "fields": {
+    "category": 2,
+    "gender": "men",
+    "name": "N╪VA Oversized Denim Jacket",
+    "slug": "oversized-denim-jacket",
+    "description": "Premium oversized denim jacket from the N╪VA fashion collection.",
+    "price": "5999.00",
+    "original_price": "6999.00",
+    "brand": "N╪VA",
+    "stock": 30,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.035Z",
+    "updated_at": "2026-08-17T11:34:39.035Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 63,
+  "fields": {
+    "category": 6,
+    "gender": "men",
+    "name": "N╪VA Utility Cargo Shorts",
+    "slug": "utility-cargo-shorts",
+    "description": "Premium utility cargo shorts from the N╪VA fashion collection.",
+    "price": "2999.00",
+    "original_price": "3699.00",
+    "brand": "N╪VA",
+    "stock": 40,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.116Z",
+    "updated_at": "2026-08-17T11:34:39.116Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 64,
+  "fields": {
+    "category": 3,
+    "gender": "men",
+    "name": "N╪VA Essential Hoodie",
+    "slug": "essential-hoodie",
+    "description": "Premium essential hoodie from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": "4999.00",
+    "brand": "N╪VA",
+    "stock": 45,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.193Z",
+    "updated_at": "2026-08-17T11:34:39.193Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 65,
+  "fields": {
+    "category": 3,
+    "gender": "men",
+    "name": "N╪VA Heavyweight Sweatshirt",
+    "slug": "heavyweight-sweatshirt",
+    "description": "Premium heavyweight sweatshirt from the N╪VA fashion collection.",
+    "price": "3499.00",
+    "original_price": "4299.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.271Z",
+    "updated_at": "2026-08-17T11:34:39.271Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 66,
+  "fields": {
+    "category": 4,
+    "gender": "women",
+    "name": "N╪VA Women's Oversized Tee",
+    "slug": "womens-oversized-tee",
+    "description": "Premium women's oversized tee from the N╪VA fashion collection.",
+    "price": "1999.00",
+    "original_price": "2499.00",
+    "brand": "N╪VA",
+    "stock": 50,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.334Z",
+    "updated_at": "2026-08-17T11:34:39.334Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 67,
+  "fields": {
+    "category": 4,
+    "gender": "women",
+    "name": "N╪VA Women's Graphic Tee",
+    "slug": "womens-graphic-tee",
+    "description": "Premium women's graphic tee from the N╪VA fashion collection.",
+    "price": "2199.00",
+    "original_price": "2799.00",
+    "brand": "N╪VA",
+    "stock": 45,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.394Z",
+    "updated_at": "2026-08-17T11:34:39.394Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 68,
+  "fields": {
+    "category": 5,
+    "gender": "women",
+    "name": "N╪VA Women's Wide Leg Pants",
+    "slug": "womens-wide-leg-pants",
+    "description": "Premium women's wide leg pants from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": "4999.00",
+    "brand": "N╪VA",
+    "stock": 40,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.467Z",
+    "updated_at": "2026-08-17T11:34:39.467Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 69,
+  "fields": {
+    "category": 5,
+    "gender": "women",
+    "name": "N╪VA Women's Relaxed Jogger",
+    "slug": "womens-relaxed-jogger",
+    "description": "Premium women's relaxed jogger from the N╪VA fashion collection.",
+    "price": "3299.00",
+    "original_price": "3999.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.563Z",
+    "updated_at": "2026-08-17T11:34:39.563Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 70,
+  "fields": {
+    "category": 2,
+    "gender": "women",
+    "name": "N╪VA Women's Cropped Bomber",
+    "slug": "womens-cropped-bomber",
+    "description": "Premium women's cropped bomber from the N╪VA fashion collection.",
+    "price": "5999.00",
+    "original_price": "6999.00",
+    "brand": "N╪VA",
+    "stock": 30,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.649Z",
+    "updated_at": "2026-08-17T11:34:39.649Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 71,
+  "fields": {
+    "category": 2,
+    "gender": "women",
+    "name": "N╪VA Women's Puffer Jacket",
+    "slug": "womens-puffer-jacket",
+    "description": "Premium women's puffer jacket from the N╪VA fashion collection.",
+    "price": "6999.00",
+    "original_price": "8499.00",
+    "brand": "N╪VA",
+    "stock": 25,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.742Z",
+    "updated_at": "2026-08-17T11:34:39.742Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 72,
+  "fields": {
+    "category": 2,
+    "gender": "women",
+    "name": "N╪VA Women's Denim Jacket",
+    "slug": "womens-denim-jacket",
+    "description": "Premium women's denim jacket from the N╪VA fashion collection.",
+    "price": "5499.00",
+    "original_price": "6499.00",
+    "brand": "N╪VA",
+    "stock": 30,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:39.837Z",
+    "updated_at": "2026-08-17T11:34:39.837Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 73,
+  "fields": {
+    "category": 3,
+    "gender": "women",
+    "name": "N╪VA Women's Essential Hoodie",
+    "slug": "womens-essential-hoodie",
+    "description": "Premium women's essential hoodie from the N╪VA fashion collection.",
+    "price": "3799.00",
+    "original_price": "4499.00",
+    "brand": "N╪VA",
+    "stock": 45,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.017Z",
+    "updated_at": "2026-08-17T11:34:40.017Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 74,
+  "fields": {
+    "category": 3,
+    "gender": "women",
+    "name": "N╪VA Women's Zip Hoodie",
+    "slug": "womens-zip-hoodie",
+    "description": "Premium women's zip hoodie from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": "4999.00",
+    "brand": "N╪VA",
+    "stock": 40,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.089Z",
+    "updated_at": "2026-08-17T11:34:40.089Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 75,
+  "fields": {
+    "category": 6,
+    "gender": "women",
+    "name": "N╪VA Women's Denim Shorts",
+    "slug": "womens-denim-shorts",
+    "description": "Premium women's denim shorts from the N╪VA fashion collection.",
+    "price": "2799.00",
+    "original_price": "3499.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.150Z",
+    "updated_at": "2026-08-17T11:34:40.150Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 76,
+  "fields": {
+    "category": 3,
+    "gender": "unisex",
+    "name": "N╪VA Minimal Hoodie",
+    "slug": "minimal-hoodie",
+    "description": "Premium minimal hoodie from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": "4999.00",
+    "brand": "N╪VA",
+    "stock": 60,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.226Z",
+    "updated_at": "2026-08-17T11:34:40.226Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 77,
+  "fields": {
+    "category": 3,
+    "gender": "unisex",
+    "name": "N╪VA Boxy Sweatshirt",
+    "slug": "boxy-sweatshirt",
+    "description": "Premium boxy sweatshirt from the N╪VA fashion collection.",
+    "price": "3499.00",
+    "original_price": "4299.00",
+    "brand": "N╪VA",
+    "stock": 55,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.318Z",
+    "updated_at": "2026-08-17T11:34:40.318Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 78,
+  "fields": {
+    "category": 4,
+    "gender": "unisex",
+    "name": "N╪VA Archive Graphic Tee",
+    "slug": "archive-graphic-tee",
+    "description": "Premium archive graphic tee from the N╪VA fashion collection.",
+    "price": "2499.00",
+    "original_price": "2999.00",
+    "brand": "N╪VA",
+    "stock": 60,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.393Z",
+    "updated_at": "2026-08-17T11:34:40.393Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 79,
+  "fields": {
+    "category": 4,
+    "gender": "unisex",
+    "name": "N╪VA Studio Heavy Tee",
+    "slug": "studio-heavy-tee",
+    "description": "Premium studio heavy tee from the N╪VA fashion collection.",
+    "price": "2299.00",
+    "original_price": "2799.00",
+    "brand": "N╪VA",
+    "stock": 50,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.457Z",
+    "updated_at": "2026-08-17T11:34:40.457Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 80,
+  "fields": {
+    "category": 5,
+    "gender": "unisex",
+    "name": "N╪VA Relaxed Denim",
+    "slug": "relaxed-denim",
+    "description": "Premium relaxed denim from the N╪VA fashion collection.",
+    "price": "4299.00",
+    "original_price": "4999.00",
+    "brand": "N╪VA",
+    "stock": 45,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.526Z",
+    "updated_at": "2026-08-17T11:34:40.526Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 81,
+  "fields": {
+    "category": 5,
+    "gender": "unisex",
+    "name": "N╪VA Utility Jogger",
+    "slug": "utility-jogger",
+    "description": "Premium utility jogger from the N╪VA fashion collection.",
+    "price": "3499.00",
+    "original_price": "4299.00",
+    "brand": "N╪VA",
+    "stock": 50,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.584Z",
+    "updated_at": "2026-08-17T11:34:40.584Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 82,
+  "fields": {
+    "category": 2,
+    "gender": "unisex",
+    "name": "N╪VA Oversized Utility Jacket",
+    "slug": "oversized-utility-jacket",
+    "description": "Premium oversized utility jacket from the N╪VA fashion collection.",
+    "price": "6999.00",
+    "original_price": "8499.00",
+    "brand": "N╪VA",
+    "stock": 30,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.686Z",
+    "updated_at": "2026-08-17T11:34:40.686Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 83,
+  "fields": {
+    "category": 2,
+    "gender": "unisex",
+    "name": "N╪VA Technical Shell",
+    "slug": "technical-shell",
+    "description": "Premium technical shell from the N╪VA fashion collection.",
+    "price": "7999.00",
+    "original_price": "9499.00",
+    "brand": "N╪VA",
+    "stock": 25,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.764Z",
+    "updated_at": "2026-08-17T11:34:40.764Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 84,
+  "fields": {
+    "category": 6,
+    "gender": "unisex",
+    "name": "N╪VA Everyday Cargo Shorts",
+    "slug": "everyday-cargo-shorts",
+    "description": "Premium everyday cargo shorts from the N╪VA fashion collection.",
+    "price": "2999.00",
+    "original_price": "3699.00",
+    "brand": "N╪VA",
+    "stock": 45,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.830Z",
+    "updated_at": "2026-08-17T11:34:40.830Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 85,
+  "fields": {
+    "category": 1,
+    "gender": "unisex",
+    "name": "N╪VA Utility Vest Pro",
+    "slug": "utility-vest-pro",
+    "description": "Premium utility vest pro from the N╪VA fashion collection.",
+    "price": "4499.00",
+    "original_price": "5499.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.888Z",
+    "updated_at": "2026-08-17T11:34:40.888Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 86,
+  "fields": {
+    "category": 1,
+    "gender": "unisex",
+    "name": "N╪VA Archive Varsity Jacket",
+    "slug": "archive-varsity-jacket",
+    "description": "Premium archive varsity jacket from the N╪VA fashion collection.",
+    "price": "7499.00",
+    "original_price": "8999.00",
+    "brand": "N╪VA",
+    "stock": 25,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:40.943Z",
+    "updated_at": "2026-08-17T11:34:40.943Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 87,
+  "fields": {
+    "category": 1,
+    "gender": "unisex",
+    "name": "N╪VA Street Utility Hoodie",
+    "slug": "street-utility-hoodie",
+    "description": "Premium street utility hoodie from the N╪VA fashion collection.",
+    "price": "4499.00",
+    "original_price": "5499.00",
+    "brand": "N╪VA",
+    "stock": 40,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.057Z",
+    "updated_at": "2026-08-17T11:34:41.057Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 88,
+  "fields": {
+    "category": 1,
+    "gender": "unisex",
+    "name": "N╪VA Graphic Archive Tee",
+    "slug": "graphic-archive-tee",
+    "description": "Premium graphic archive tee from the N╪VA fashion collection.",
+    "price": "2499.00",
+    "original_price": "2999.00",
+    "brand": "N╪VA",
+    "stock": 50,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.141Z",
+    "updated_at": "2026-08-17T11:34:41.141Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 89,
+  "fields": {
+    "category": 1,
+    "gender": "unisex",
+    "name": "N╪VA Multi Pocket Cargo",
+    "slug": "multi-pocket-cargo",
+    "description": "Premium multi pocket cargo from the N╪VA fashion collection.",
+    "price": "4999.00",
+    "original_price": "5999.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.213Z",
+    "updated_at": "2026-08-17T11:34:41.213Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 90,
+  "fields": {
+    "category": 1,
+    "gender": "unisex",
+    "name": "N╪VA Street Utility Vest",
+    "slug": "street-utility-vest",
+    "description": "Premium street utility vest from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": "4999.00",
+    "brand": "N╪VA",
+    "stock": 30,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.288Z",
+    "updated_at": "2026-08-17T11:34:41.288Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 91,
+  "fields": {
+    "category": 7,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Court Runner",
+    "slug": "nova-court-runner",
+    "description": "Premium n°va court runner from the N╪VA fashion collection.",
+    "price": "5999.00",
+    "original_price": "6999.00",
+    "brand": "N╪VA",
+    "stock": 40,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.425Z",
+    "updated_at": "2026-08-17T11:34:41.425Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 92,
+  "fields": {
+    "category": 7,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Urban Runner",
+    "slug": "nova-urban-runner",
+    "description": "Premium n°va urban runner from the N╪VA fashion collection.",
+    "price": "6499.00",
+    "original_price": "7499.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.525Z",
+    "updated_at": "2026-08-17T11:34:41.525Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 93,
+  "fields": {
+    "category": 7,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Street Low",
+    "slug": "nova-street-low",
+    "description": "Premium n°va street low from the N╪VA fashion collection.",
+    "price": "5499.00",
+    "original_price": "6499.00",
+    "brand": "N╪VA",
+    "stock": 45,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.600Z",
+    "updated_at": "2026-08-17T11:34:41.600Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 94,
+  "fields": {
+    "category": 7,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Retro Runner",
+    "slug": "nova-retro-runner",
+    "description": "Premium n°va retro runner from the N╪VA fashion collection.",
+    "price": "6299.00",
+    "original_price": "7499.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.664Z",
+    "updated_at": "2026-08-17T11:34:41.664Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 95,
+  "fields": {
+    "category": 7,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Trail Pro",
+    "slug": "nova-trail-pro",
+    "description": "Premium n°va trail pro from the N╪VA fashion collection.",
+    "price": "6999.00",
+    "original_price": "8499.00",
+    "brand": "N╪VA",
+    "stock": 30,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.729Z",
+    "updated_at": "2026-08-17T11:34:41.730Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 96,
+  "fields": {
+    "category": 8,
+    "gender": "women",
+    "name": "N╪VA N╪VA Mini Shoulder Bag",
+    "slug": "nova-mini-shoulder-bag",
+    "description": "Premium n°va mini shoulder bag from the N╪VA fashion collection.",
+    "price": "2499.00",
+    "original_price": "2999.00",
+    "brand": "N╪VA",
+    "stock": 40,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.834Z",
+    "updated_at": "2026-08-17T11:34:41.834Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 97,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Utility Bag",
+    "slug": "nova-utility-bag",
+    "description": "Premium n°va utility bag from the N╪VA fashion collection.",
+    "price": "2999.00",
+    "original_price": "3699.00",
+    "brand": "N╪VA",
+    "stock": 45,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.915Z",
+    "updated_at": "2026-08-17T11:34:41.915Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 98,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Crossbody Pro",
+    "slug": "nova-crossbody-pro",
+    "description": "Premium n°va crossbody pro from the N╪VA fashion collection.",
+    "price": "3299.00",
+    "original_price": "3999.00",
+    "brand": "N╪VA",
+    "stock": 35,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:41.983Z",
+    "updated_at": "2026-08-17T11:34:41.983Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 99,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Archive Cap",
+    "slug": "nova-archive-cap",
+    "description": "Premium n°va archive cap from the N╪VA fashion collection.",
+    "price": "1299.00",
+    "original_price": "1699.00",
+    "brand": "N╪VA",
+    "stock": 60,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:42.050Z",
+    "updated_at": "2026-08-17T11:34:42.050Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 100,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Logo Beanie",
+    "slug": "nova-logo-beanie",
+    "description": "Premium n°va logo beanie from the N╪VA fashion collection.",
+    "price": "1499.00",
+    "original_price": "1899.00",
+    "brand": "N╪VA",
+    "stock": 55,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:42.113Z",
+    "updated_at": "2026-08-17T11:34:42.113Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 101,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Card Holder",
+    "slug": "nova-card-holder",
+    "description": "Premium n°va card holder from the N╪VA fashion collection.",
+    "price": "1699.00",
+    "original_price": "2199.00",
+    "brand": "N╪VA",
+    "stock": 50,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:42.211Z",
+    "updated_at": "2026-08-17T11:34:42.211Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 102,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Leather Belt",
+    "slug": "nova-leather-belt",
+    "description": "Premium n°va leather belt from the N╪VA fashion collection.",
+    "price": "1999.00",
+    "original_price": "2499.00",
+    "brand": "N╪VA",
+    "stock": 40,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:42.289Z",
+    "updated_at": "2026-08-17T11:34:42.289Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 103,
+  "fields": {
+    "category": 8,
+    "gender": "unisex",
+    "name": "N╪VA N╪VA Travel Duffle",
+    "slug": "nova-travel-duffle",
+    "description": "Premium n°va travel duffle from the N╪VA fashion collection.",
+    "price": "3999.00",
+    "original_price": "4999.00",
+    "brand": "N╪VA",
+    "stock": 30,
+    "is_active": true,
+    "created_at": "2026-08-17T11:34:42.358Z",
+    "updated_at": "2026-08-17T11:34:42.358Z"
+  }
+}
+]
